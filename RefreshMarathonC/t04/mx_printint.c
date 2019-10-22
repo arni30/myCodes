@@ -1,11 +1,17 @@
+#include <unistd.h>
+
 void mx_printchar(char c);
 void mx_printint(int n);
 
 void mx_printint(int n){
     int num;
     int counter = 1;
-
-    if (n<0){
+    
+    if(n == -2147483648){
+        write(1, "-2147483648", 11);
+        return;
+    }
+    if (n < 0){
         n *= -1; 
         mx_printchar('-');
     }
@@ -20,6 +26,5 @@ void mx_printint(int n){
         counter /= 10;
         mx_printchar(num);
     }
-    mx_printchar('\n');
 }
 

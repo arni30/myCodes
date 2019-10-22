@@ -3,12 +3,12 @@ int mx_bubble_sort(char **arr, int size);
 
 int mx_bubble_sort(char **arr, int size){
     int counter = 0;
-    for(int i = 1; i < size; i++){
-        for(int j = i+1; j < size; j++){
-            if(mx_strcmp(arr[i],arr[j]) == 1){
-                char *buf = arr[i];
-                arr[i] = arr[j];
-                arr[j] = buf;
+    for(int i = 0; i < size; i++){
+        for(int j = 0; j < size - i - 1; j++){
+            if(mx_strcmp(arr[j],arr[j + 1]) == 1){
+                char *buf = arr[j];
+                arr[j] = arr[j + 1];
+                arr[j + 1] = buf;
                 counter++;
             }
         }

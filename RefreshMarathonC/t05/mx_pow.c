@@ -1,28 +1,20 @@
 double mx_pow(double n, int pow);
 
 double mx_pow(double n, int pow){
-    double result;
-    int power = pow;
-    if (pow == 0){
-        result = 1;
+    double result = 1.0;
+    
+    if(pow == 0){
+        return 1;
     }
-    else if (pow == 1){
-        result = n;
+    else if(pow == 1){
+        return n;
     }
-    else{
-        if(power < 0){
-        pow *= -1;
+    else if (pow > 1){
+        for(int i = 0; i < pow; i++){
+            result *= n;
         }
-        result = n;
-        while (pow != 1)
-        {
-            result *= n; 
-            pow--;
-        }
-        if(power < 0){
-            result = 1 / result;
-        }
-    }
     return result;
+    }
+    return 1;
 }
 
