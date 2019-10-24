@@ -1,17 +1,30 @@
 #include "libmx.h"
+#include <ldap_utf8.h>
 #include <stdio.h>
 void mx_print_unicode(wchar_t c){
-    printf("%x\n",c);
-    // unsigned long n = c;
-    // //n++;
-    // char *str = NULL;
-    // char *s = mx_nbr_to_hex(n);
-    // printf("%d\n", mx_strlen(s));
-    // if(mx_strlen(s) == 3){
-    //     str = mx_strcat("\\U00000", s);
-    // }
-     //arr[8] = {0,0,0,0,0,0,0,0};
-   // for (int i = 0; i 
-    //printf("%s\n", s);
-    write(1, "\U0001f921", 3);
+  int mask = 63;
+  
+      if(c < 128){
+          char res = c;
+          write(1, &res, sizeof(res));
+      }
+      else if(c >= 128 && c < 2048){
+          char res[2];
+          res[0] = (c >> 6) + 0xc0;//b2
+          res[1] = (c & mask) + 0x80;//b1
+          write(1, res ,sizeof(res));
+      }
+      else if (c < 65536 && (c < 55296 || c > 57343)){
+        // char res[3];
+        // res[1] = (c & mask) + 0x80;//b1
+        // printf("%d\n",res[1]);
+
+        // res[0] = ((c >> 11)&mask); //b2
+        // printf("%d\n",res[0]);
+        
+        // res[2] = (c - res[1] - (64*res[0]))/ 0x1000;
+        // printf("%d\n",res[2]);
+  
+        //write(1, res, sizeof(res));
+      }
 }

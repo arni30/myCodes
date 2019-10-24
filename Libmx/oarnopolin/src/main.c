@@ -1,7 +1,7 @@
 #include "libmx.h"
 int main(){
     
-    mx_print_unicode(1906);
+    mx_print_unicode(1099);
     //printf("%d", (128 & mask) + 0x80);
     
 }
