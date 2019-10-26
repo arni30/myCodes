@@ -4,8 +4,7 @@
 #include <stdlib.h>
 
 int main(void) {
-   
-    char *arr = mx_strnew(10000);
-    mx_strdel(&arr);
-    printf("%s",arr);
+    char *arr = "ARNI30";
+    char *str = "i wanna go home";
+    printf("%s",mx_strncpy(str, arr, 10));
 } 
