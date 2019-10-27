@@ -5,6 +5,7 @@
 #include <unistd.h>
 #include <stdlib.h>
 #include <stdio.h>
+#include <stdbool.h>
 
 void mx_printchar(char c);
 void mx_print_unicode(wchar_t c);
@@ -32,4 +33,11 @@ void mx_del_strarr(char ***arr);
 int mx_get_char_index(const char *str, char c);
 char *mx_strcpy(char *dst, const char *src);
 char *mx_strncpy(char *dst, const char *src, int len);
+char *mx_strstr(const char *haystack, const char *needle);
+int mx_get_substr_index(const char *str, const char *sub);
+int mx_count_substr(const char *str, const char *sub);
+int mx_count_words(const char *str, char c);
+bool mx_isspace(char c);
+char *mx_strtrim(const char *str);
+
 #endif

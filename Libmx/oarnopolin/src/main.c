@@ -4,7 +4,7 @@
 #include <stdlib.h>
 
 int main(void) {
-    char *arr = "ARNI30";
-    char *str = "i wanna go home";
-    printf("%s",mx_strncpy(str, arr, 10));
+        char name[] = "\f  My name... is Neo  \t\n ";
+        printf("%s\n",mx_strtrim(name));
+    
 } 
