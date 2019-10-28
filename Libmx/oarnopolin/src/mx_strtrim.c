@@ -10,14 +10,14 @@ char *mx_strtrim(const char *str){
             start++;
             a++;
         }
-        while(!mx_isspace(str[end])){
+        while(mx_isspace(str[end-1])){
             end--;
         }
         char *new_str = mx_strnew(end - start);
         for(int i = start,j=0; i < end; i++){
-            mx_strncpy(&new_str[j++],&str[i],end-start);
+            new_str[j++] = str[i];
         }
-        //mx_strdel(&new_str);
+        free(new_str);
         return new_str;
     }
     return NULL;

@@ -6,6 +6,7 @@
 #include <stdlib.h>
 #include <stdio.h>
 #include <stdbool.h>
+#include <string.h>
 
 void mx_printchar(char c);
 void mx_print_unicode(wchar_t c);
@@ -39,5 +40,9 @@ int mx_count_substr(const char *str, const char *sub);
 int mx_count_words(const char *str, char c);
 bool mx_isspace(char c);
 char *mx_strtrim(const char *str);
+char *mx_strdup(const char *s1);
+char *mx_strndup(const char *s1, size_t n);
+char *mx_del_extra_spaces(const char *str);
+char *mx_strjoin(const char *s1, const char *s2);
 
 #endif

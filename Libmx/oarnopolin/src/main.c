@@ -4,7 +4,12 @@
 #include <stdlib.h>
 
 int main(void) {
-        char name[] = "\f  My name... is Neo  \t\n ";
-        printf("%s\n",mx_strtrim(name));
+        //char *str1 = "this";
+        //char *str2 = "dodge ";
+        char *str3 = NULL;
+        printf("%s",mx_strjoin(str3,str3));
+        
+      
     
 } 
+

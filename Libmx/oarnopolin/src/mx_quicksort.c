@@ -1,34 +1,29 @@
 #include "libmx.h"
 
-void swap(char *x, char *y) { 
-	char *temp;
-	temp = y;
-	*y = *x;
-	x = temp;
-}
-
-unsigned int partition(char *array, unsigned int p, unsigned int q, unsigned int pivotLocation) {	
-	char *pivot = NULL;
-	unsigned int i, j;
-	
-	*pivot = array[pivotLocation];
-	swap(&array[pivotLocation], &array[q]);
-	i = p;
-	for(j = p; j < q; j++) if(array[j] <= *pivot) swap(&array[i++], &array[j]);
-	swap(&array[q], &array[i]);
-	return i;
-}
-
 int mx_quicksort(char **arr, int left, int right) {
-	int r; 
-    int middle;
     int count = 0;
-	if(left < right) {
-		middle = (left+right)/2;
-		r = partition(*arr, left, right, middle);
-		mx_quicksort(arr, left, r-1);
-		mx_quicksort(arr, r+1, right);
-	}
+
+    if(arr == NULL){
+        return -1;
+    }
+        if (left < right) {
+            count = 1;
+            int first = left;
+            int last = right;
+            int  middle = (first + last) / 2;
+
+            while (first <= last) {
+                while (mx_strcmp(arr[first],arr[middle]) < 0) first++;
+                while (mx_strcmp(arr[last],arr[middle]) > 0) last--;
+                char *tmp = arr[first];
+                arr[first] = arr[last];
+                arr[last] = tmp;
+                first++;
+                last--;
+                count++;
+            }
+            mx_quicksort(arr, left, last);
+            mx_quicksort(arr, first, right);
+        }
     return count;
 }
-
