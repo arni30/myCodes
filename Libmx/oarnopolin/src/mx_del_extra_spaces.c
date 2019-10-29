@@ -3,20 +3,22 @@
 char *mx_del_extra_spaces(const char *str){
     int flag = 0;
     char *res = mx_strnew(sizeof(char*));
-    for (int i = 0, j = 0; i < mx_strlen(str); i++){
-        if (mx_isspace(str[i]) && flag == 1){
+    res = mx_strtrim(str);
+    char *result = mx_strnew(sizeof(char*));
+    for (int i = 0, j = 0; i < mx_strlen(res); i++){
+        if (mx_isspace(res[i]) && flag == 1){
             continue;
         }
-        if (mx_isspace(str[i]) && flag == 0){
-            res[j] = str[i];
+        if (mx_isspace(res[i]) && flag == 0){
+            result[j] = res[i];
             flag = 1;
             j++;
         }
         else{
-            res[j] = str[i];
+            result[j] = res[i];
             flag = 0;
             j++;
         }
     }
-    return mx_strtrim(res);
+    return result;
 }
