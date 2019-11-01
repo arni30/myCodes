@@ -7,6 +7,13 @@
 #include <stdio.h>
 #include <stdbool.h>
 #include <string.h>
+#include <fcntl.h>
+
+typedef struct  s_list {
+    void  *data;
+    struct s_list *next;
+}t_list;
+ 
 
 void mx_printchar(char c);
 void mx_print_unicode(wchar_t c);
@@ -44,5 +51,22 @@ char *mx_strdup(const char *s1);
 char *mx_strndup(const char *s1, size_t n);
 char *mx_del_extra_spaces(const char *str);
 char *mx_strjoin(const char *s1, const char *s2);
+char *mx_del_extra_symbols(const char *s, char c);
+char **mx_strsplit(const char *s, char c);
+char *mx_file_to_str(const char *file);
+t_list  *mx_create_node(void *data);
+void mx_push_front(t_list **list, void *data);
+void mx_push_back(t_list **list, void *data);
+int mx_read_line(char **lineptr, int buf_size, char delim, const int fd);
+char *mx_replace_substr(const char *str, const char *sub, const char *replace);
+void *mx_memset(void *b, int c, size_t len);
+void *mx_memcpy(void *restrict dst, const void *restrict src, size_t n);
+void *mx_memccpy(void *restrict dst, const void *restrict src, int c, size_t n);
+void *mx_memchr(const void *s, int c, size_t n);
+void *mx_memrchr(const void *s, int c, size_t n);
+int mx_memcmp(const void *s1, const void *s2, size_t n);
+void *mx_memmove(void *dst, const void *src, size_t len);
+void *mx_memmem(const void *big, size_t big_len, const void *little, size_t little_len);
+void *mx_realloc(void *ptr, size_t size);
 
 #endif
