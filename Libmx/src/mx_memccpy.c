@@ -1,11 +1,14 @@
 #include "../inc/libmx.h"
 
 void *mx_memccpy(void *restrict dst, const void *restrict src, int c, size_t n){    
-    char *dst_buf = dst;
-    const char *src_buf = src;
+    unsigned char *dst_buf = (unsigned char*)dst;
+    unsigned char *src_buf = (unsigned char*)src;
 
-    while (*src_buf != c && n--){
-        *dst_buf++ = *src_buf++;
-    }
-    return dst;
+    while (n--){
+		if ((*dst_buf = *src_buf) == (unsigned char)c)
+			return (dst_buf + 1);
+		++dst_buf;
+		++src_buf;
+	}
+	return (NULL);
 }

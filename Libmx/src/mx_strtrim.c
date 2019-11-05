@@ -17,7 +17,6 @@ char *mx_strtrim(const char *str){
         for(int i = start,j=0; i < end; i++){
             new_str[j++] = str[i];
         }
-        free(new_str);
         return new_str;
     }
     return NULL;
