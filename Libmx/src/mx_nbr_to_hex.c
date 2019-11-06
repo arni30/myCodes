@@ -1,8 +1,8 @@
 #include "../inc/libmx.h"
 
 char *mx_nbr_to_hex(unsigned long nbr){
-    char *hex = mx_strnew(sizeof(char*));
-    char *hex_res = mx_strnew(sizeof(char*));
+    char *hex = mx_strnew(16 * sizeof(char));
+    char *hex_res = mx_strnew(16 * sizeof(char));
     int j = 0;
 
     for(unsigned long int i = nbr; i > 0; i=i/16){

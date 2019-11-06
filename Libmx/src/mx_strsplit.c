@@ -6,7 +6,7 @@ char **mx_strsplit(const char *s, char c){
     int start = 0;
     int end = 0;
     int j = 0;
-    char **arr = (char**) malloc((count_words) * sizeof(char*));
+    char **arr = (char**) malloc(count_words * sizeof(char));
 
     if(s != NULL && arr != NULL){
         while(s[i] != '\0'){

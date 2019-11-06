@@ -7,14 +7,13 @@ int mx_quicksort(char **arr, int left, int right) {
         return -1;
     }
         if (left < right) {
-            count = 1;
             int first = left;
             int last = right;
             int  middle = (first + last) / 2;
 
             while (first <= last) {
-                while (mx_strcmp(arr[first],arr[middle]) < 0) first++;
-                while (mx_strcmp(arr[last],arr[middle]) > 0) last--;
+                while (mx_strlen(arr[first]) < mx_strlen(arr[middle])) first++;
+                while (mx_strlen(arr[last]) > mx_strlen(arr[middle])) last--;
                 char *tmp = arr[first];
                 arr[first] = arr[last];
                 arr[last] = tmp;
