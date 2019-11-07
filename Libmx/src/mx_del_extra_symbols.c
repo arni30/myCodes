@@ -18,10 +18,8 @@ char *mx_del_extra_symbols(const char *s, char c){
         for(int i = start,j=0; i < end; i++){
             new_str[j++] = s[i];
         }
-        free(new_str);
-
-        char *result = malloc(sizeof(char));
-        for (int i = 0, j = 0; i < mx_strlen(new_str)-0.5; i++){
+        char *result = mx_strnew(mx_strlen(new_str));
+        for (int i = 0, j = 0; i < mx_strlen(new_str); i++){
             if (new_str[i] == c && flag == 1){
                 continue;
             }
@@ -36,8 +34,10 @@ char *mx_del_extra_symbols(const char *s, char c){
                 j++;
             }
         }
+        char *res = mx_realloc(result, mx_strlen(result));
+        free(new_str);
         free(result);
-        return result;
+        return res;
     }
     return NULL;
 }

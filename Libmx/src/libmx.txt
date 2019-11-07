@@ -1,0 +1,28 @@
+fsafafsdfasfadsfasfasdfasdfkdsa;mfa;lfads;fl'a';fad'f;sadf.[as'df,\'ads;fadsf';.adsf;'adsf'd.f'as.'f;dafs;dddewfla',df,a'f;.;'dff.'nhg.j'hg;m.chj'ghwj.dchg';ec.gh'e;rc.eh;'cjnfh.ejcv;>Jdfg'h;jgh'efhc:hje.,fm.H?ejhj.c.hfjdDH?J>erecrerwece
+user output vs test output
+0a1,6
+> 0RS uwAAKhWv8VS2sa1YjEqTE0ygXmUC9if70fetBruZkMKVXM9nPltAmYmsqac3qxU2CQuSaxO9QaLVN9TTDQS Sn988ouEaQ1LakZ wL6iRHuFerY
+> S1bnWmRmlsoGJfvk9ngY1zFQyv0UaUvoITJNvJ8GSRky7nXM9
+> roAKWyrLZgmUtAXk3A
+> DcoduRUZN272D3GTdu9Obha8 5YI349IrCuIi5QwSuqbiB hkXjqxJVQYRV4g4brzYfuN1GZ1K380rL1JAoJsf8Z4s9fkGdVDOhE  HeJ
+> Is7C1cfEry4v0WOC05SNOJEtpHRUy83G7HXzf1Je3i0PvyHVbJfy6XicGh    juetTkE5k       W
+> m
+
+You lost 16 points
+----------------------------------------
+Total 22 points for mx_replace_substr [ FAIL ]
+----------------------------------------
+----------------------------------------
+Running tests for mx_sort_list for User
+Running tests for mx_sort_list for Test
+----------------------------------------
+Comparing outputs
+Test case 0 Failed
+
+user output vs test output
+1c1,25
+< Timeout
+---
+> size of node: 16
+> data: -848
+> 

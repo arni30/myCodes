@@ -1,23 +1,20 @@
 #include "../inc/libmx.h"
 
 void *mx_realloc(void *ptr, size_t size){
-   
-   if (size == 0)
-   {
+   void *new_ptr;
+
+   if (!ptr) {
+      new_ptr = malloc(size);
+      if(!new_ptr) return NULL;
+      return new_ptr;
+   } 
+   if (malloc_size(ptr) < size) {
+      new_ptr = malloc(size);
+      if (!new_ptr) return NULL;
+      mx_memcpy(new_ptr, ptr, malloc_size(ptr));
       free(ptr);
-      return NULL;
-   }
-   else if (!ptr)
-   {
-      return malloc(size);
-   }
-   else{
-        void *ptrNew = malloc(size);
-        if (ptrNew){
-          mx_memcpy(ptrNew, ptr, size);
-          free(ptr);
-        }
-        return ptrNew;
-    }
+   } 
+   else new_ptr = ptr;
+   return new_ptr;
 }
 
