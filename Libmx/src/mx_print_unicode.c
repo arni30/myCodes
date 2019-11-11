@@ -7,8 +7,8 @@ void mx_print_unicode(wchar_t c){
     }
     else if (c < 2048) {
         unsigned char res[2];
-        res[0] = (c >> 6 & 0x1f) | 0xc0 ;//b2
-        res[1] = (c >> 0 & 0x3f) | 0x80;//b1
+        res[0] = (c >> 6 & 0x1f) | 0xc0 ;
+        res[1] = (c >> 0 & 0x3f) | 0x80;
         write(1, res ,sizeof(res));
     }
     else if (c < 65536) {
@@ -18,7 +18,7 @@ void mx_print_unicode(wchar_t c){
         res[2] = (c >> 0 & 0x3f) | 0x80;
         write(1, res, sizeof(res));
         }
-    else if (c < 1114112) {
+    else {
         unsigned char res[4];
         res[0] = (c >> 18 & 0x07) | 0xf0; 
         res[1] = (c >> 12 & 0x0f) | 0x80;
@@ -27,3 +27,5 @@ void mx_print_unicode(wchar_t c){
         write(1, res, sizeof(res));
     }
 }
+
+

@@ -15,14 +15,13 @@ int mx_read_line(char **lineptr, int buf_size, char delim, const int fd){
         if(type < 0){
             return 0;
         }
-        free (buf);
         int index = mx_get_char_index(str, delim);
         if (index != -1) {
             mx_strncpy(*lineptr, str, index);
         }
         else{
             *lineptr = str;
-            return 0;
+            return 5;
         }
         close(fd);
         return index;

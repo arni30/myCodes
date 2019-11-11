@@ -3,6 +3,10 @@
 void mx_pop_front(t_list **head){
     t_list *temp = *head;
     
-    *head = (*head)->next;
+    if (head == NULL)
+        return;
+    if(*head == NULL)
+        return;
+    *head = temp->next;
     free(temp);
 }
