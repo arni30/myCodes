@@ -15,5 +15,5 @@ void *mx_memmem(const void *big, size_t big_len, const void *little, size_t litt
         }
         if (flag == 1) return &big_buf[i];
     }
-    return 0;
+    return NULL;
 }

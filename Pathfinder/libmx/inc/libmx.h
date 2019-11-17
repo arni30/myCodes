@@ -14,7 +14,10 @@ typedef struct  s_list {
     void  *data;
     struct s_list *next;
 }t_list;
- 
+
+bool mx_isdigit(int c);
+int mx_atoi(const char *str);
+char *mx_strncat(char *s1, const char *s2, size_t len);
 char *mx_strchr(const char *str, char c);
 void mx_printchar(char c);
 void mx_print_unicode(wchar_t c);
