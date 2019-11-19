@@ -15,6 +15,7 @@ typedef struct  s_list {
     struct s_list *next;
 }t_list;
 
+int mx_min(int *arr, int len);
 bool mx_isdigit(int c);
 int mx_atoi(const char *str);
 char *mx_strncat(char *s1, const char *s2, size_t len);
