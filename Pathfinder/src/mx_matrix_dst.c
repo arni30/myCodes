@@ -27,8 +27,8 @@ void mx_matrix_dst(char **unique, char **res){
     int *c = malloc(count_unique * sizeof(int));//путь
     unsigned long *b = malloc(count_unique * sizeof(unsigned long));
 
-    mx_dejkstry_algorithm(new_matrix_distance, count_unique, s, c, b);
-    for(int i = 0; i < lines; i++){
+    mx_dejkstry_algorithm(unique, new_matrix_distance, count_unique, s, c, b);
+    for(int i = 0; i < count_unique; i++){
         free(new_matrix_distance[i]);
     }
     free(new_matrix_distance);
