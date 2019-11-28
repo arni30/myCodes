@@ -15,6 +15,8 @@ typedef struct  s_list {
     struct s_list *next;
 }t_list;
 
+int mx_minimal(int a, int b);
+int mx_maximum(int a, int b);
 int mx_count_arr_el(char **arr);
 bool mx_isalpha(int c);
 int mx_min(int *arr, int len);

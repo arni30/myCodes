@@ -1,42 +1,24 @@
 #include "../inc/pathfinder.h"
 
-void mx_output(int l, char **unique, int num_of_islands, int *c, unsigned long *b, int *c_extra){
-    int count_path = 0;
-    //int start = l;
-    for(int i = l; i < num_of_islands; i++){
-        if(c[i] != -1) count_path++;
-    }
-    for(int i = l; i < num_of_islands; i++){
-        if(c_extra[i] != -1){
-            if(c_extra[i] != c[i]){
-                if(c_extra[c[i]] != c[c[i]] && c_extra[c[i]] != -1) count_path++;
-                if(c_extra[c_extra[i]] != c[c_extra[i]] && c_extra[c_extra[i]] != -1) count_path++;
-                count_path++;
-            }
-            else if(c_extra[c[i]] != c[c[i]] && c_extra[c[i]] != -1) count_path++;
-        }
-    }
-    int k = l + 1; 
-    b++;
-    unique++;
-    //int end = k;
+void mx_output(unsigned long **matrix_distances, int l, char **unique, int num_of_islands, int *c, int *c_extra) {
+    int start = l;
+    int end = start + 1; 
+    int count_path = mx_count_path(start, num_of_islands, c, c_extra);
+    int flag = 0;
     int *route = malloc(100*sizeof(int*));
-    route[0] = k;
-    int i = 1;
-    while(c[k] != l){
-        route[i] = c[k];
-        k = c[k];
-        printf("%d",route[i]);
-        i++;
+
+    for (int j = 0; j < count_path; j++) {
+        route[0] = end;
+        mx_print_path(unique, start, end);
+        mx_printstr("Route: ");
+        mx_printstr(unique[start]);
+        if (flag == 1) {
+            flag = 0;
+            end = mx_print_extra_way(route, unique, c, c_extra, matrix_distances, start, end);//сделать рекурсионную для большего кол-ва путей!!!!!!!
+            continue;
+        }
+        flag = mx_print_way(route, unique, c, c_extra, matrix_distances, start, end);
+        if (flag == 0) end++;
     }
-    
-    // b++;
-    // for(int i = 0; i < count_path; i++){
-    //     mx_printstr("========================================\n");
-    //     mx_printstr("Path: ");
-    //     mx_printstr(unique[l]);
-    //     mx_printstr(" -> ");
-    //     mx_printchar('\n');
-    //     mx_printstr("========================================\n");
-    // }
+    free(route);
 }

@@ -1,8 +1,6 @@
 #include "../inc/pathfinder.h"
 
-
-
-int main(int argc, char **argv){  
+int main(int argc, char **argv) {  
     mx_find_errors(argc, argv);
     char *file = argv[1];
     char *str = mx_file_to_str(file);//файл в строку
