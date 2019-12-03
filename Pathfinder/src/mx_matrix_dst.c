@@ -1,23 +1,25 @@
 #include "../inc/pathfinder.h"
 
 void mx_matrix_dst(char **unique, char **res) {
-    int count_unique = mx_count_arr_el(unique);
+    int uni = mx_count_arr_el(unique);
     int counter = mx_count_arr_el(res);
     int *new_res = mx_arr_skip_first_string(unique, res);
-    int **matrix_distance = mx_three_col_matrix(new_res, counter);
+    if(new_res == NULL) exit(1);
+    int **matrix = mx_three_col_matrix(new_res, counter);
+    if(matrix == NULL) exit(1);
     int lines = (counter - 1) / 3;
-    unsigned long **new_matrix_distance = (unsigned long**)malloc(count_unique * sizeof(unsigned long*));//матрица расстояний
+    unsigned long **new_matrix = malloc(uni * sizeof(unsigned long*));
     
-    for (int i = 0; i < count_unique; i++) {
-        new_matrix_distance[i] = (unsigned long*)malloc(count_unique * sizeof(unsigned long));
-        for (int j = 0; j < count_unique; j++) new_matrix_distance[i][j] = 2147483647;
+    for (int i = 0; i < uni; i++) {
+        new_matrix[i] = (unsigned long*)malloc(uni * sizeof(unsigned long));
+        for (int j = 0; j < uni; j++) new_matrix[i][j] = 2147483647;
     }
     for (int i = 0; i < lines; i++) {
-        new_matrix_distance[matrix_distance[i][0]][matrix_distance[i][1]] = matrix_distance[i][2];
-        new_matrix_distance[matrix_distance[i][1]][matrix_distance[i][0]] = matrix_distance[i][2];
+        new_matrix[matrix[i][0]][matrix[i][1]] = matrix[i][2];
+        new_matrix[matrix[i][1]][matrix[i][0]] = matrix[i][2];
     }
-    mx_dejkstry_algorithm(unique, new_matrix_distance, count_unique);
+    mx_dejkstry_algorithm(unique, new_matrix, uni);
     free(new_res);
-    mx_free_void_arr((void**)matrix_distance, lines);
-    mx_free_void_arr((void**)new_matrix_distance, count_unique);
+    mx_free_void_arr((void**)matrix, lines);
+    mx_free_void_arr((void**)new_matrix, uni);
 }

@@ -3,7 +3,8 @@
 int *mx_arr_skip_first_string(char **unique, char **res) {    
     int count_unique = mx_count_arr_el(unique);
     int counter = mx_count_arr_el(res);
-    int *new_res = (int*)malloc((counter - 1) * sizeof(int));//не считаем кол-во элементов
+    int *new_res = (int*)malloc((counter - 1) * sizeof(int));
+    if(new_res == NULL) return NULL;
     int i = 0;
     int j = 1;
     

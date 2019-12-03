@@ -1,8 +1,11 @@
 #include "../inc/pathfinder.h"
 
 void mx_first_line_valid(char **str) {
-    if (mx_atoi(str[0]) == 0) {
-        write(2, "error: line 1 is not valid", mx_strlen("error: line 1 is not valid"));
-        exit(1);
+    for(int i = 0; i < mx_strlen(str[0]); i++){
+        if (!mx_isdigit(str[0][i])) {
+            char *error = "error: line 1 is not valid\n";
+            write(2, error, mx_strlen(error));
+            exit(1);
+        }
     }    
 }

@@ -9,8 +9,9 @@ void mx_find_errors(int argc, char **argv) {
 
     if (str != NULL) {
         mx_first_line_valid(str);
-        mx_line_valid(str);
+        mx_line_valid(str, temp);
         mx_del_strarr(&str);
     }
     free(temp);
 }
+

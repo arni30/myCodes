@@ -2,7 +2,8 @@
 
 void mx_error_usage(int argc) {
     if (argc != 2) {
-        write(2, "usage: ./pathfinder [filename]", mx_strlen("usage: ./pathfinder [filename]"));
+        char *error = "usage: ./pathfinder [filename]\n";
+        write(2, error, mx_strlen(error));
         exit(1);
     }  
 }
