@@ -24,6 +24,6 @@ clean:
 	@rm -rf $(SRCOB)
 	@rm -rf $(DIR)
 
-reinstall: uninstall all
+reinstall: uninstall install
 	@rm -rf $(SRCOB)
 	@rm -rf $(DIR)

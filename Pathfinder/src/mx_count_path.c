@@ -4,7 +4,8 @@ int mx_count_path(int start, int num_of_islands, int *c, int *c_e){
     int count_path = 0;
 
     for (int i = start; i < num_of_islands; i++) {
-        if (c[i] != -1) count_path++;
+        if (c[i] != -1) 
+            count_path++;
     }
     for (int i = start; i < num_of_islands; i++) {
         if (c_e[i] != -1) {

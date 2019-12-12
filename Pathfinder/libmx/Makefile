@@ -13,7 +13,7 @@ install:
 	@mkdir obj
 	@clang $(CFLAGS) -c $(SRC) 
 	@cp $(SRCOB) $(DIR)
-	ar -rcs libmx.a $(OBJ)
+	@ar -rcs libmx.a $(OBJ)
 
 uninstall: clean
 	@rm -rf $(NAME)
