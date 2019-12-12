@@ -7,7 +7,7 @@ void mx_dejkstry_algorithm(char **unique, unsigned long **matrix, int island) {
     int *c_e = malloc(island * sizeof(int));
     int *temp = malloc(sizeof(int) * island);
 
-    if(s == NULL || c == NULL || b == NULL || c_e == NULL || temp == NULL){
+    if (s == NULL || c == NULL || b == NULL || c_e == NULL || temp == NULL) {
         exit(1);
     }
     for (int l = 0; l < island - 1; l++) {   
