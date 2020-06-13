@@ -1,4 +1,6 @@
+
 #include <stdlib.h>
+#include <stdio.h>
 
 char *mx_strcpy(char *dst, const char *src);
 int mx_strlen(const char *s);
@@ -16,7 +18,7 @@ char *mx_concat_words(char **words){
         while(*words){
             char *trash = new_arr;
             new_arr = mx_strjoin(new_arr, mx_strjoin(" ",*words));
-            words++;  
+            words++;
             mx_strdel(&trash);
         }
         return new_arr;
@@ -24,3 +26,19 @@ char *mx_concat_words(char **words){
     return NULL;
 }
 
+int main(void) {
+    char **words = malloc(sizeof(char *) * 4);
+    char *arr = NULL;
+    words[0] = mx_strdup("Free");
+    words[1] = mx_strdup("your");
+    words[2] = mx_strdup("mind.");
+    words[3] = NULL;
+    for (int i = 0; words[i] != NULL; ++i) {
+        printf("%s\n", words[i]);
+    }
+    arr = mx_concat_words(words);
+
+        printf("%s\n", arr);
+
+    return 0;
+}
